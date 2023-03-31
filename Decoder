@@ -1,0 +1,16 @@
+`timescale 1ns / 1ps
+module decoder(d,a,b,e);
+input a,b,e;
+output [0:3]d;
+wire na,nb,ne;
+
+not ga(na,a);
+not gb(nb,b);
+not ge(ne,e);
+    
+nand n1(d[0],na,nb,ne);   
+nand n2(d[1],a,nb,ne); 
+nand n3(d[2],na,b,ne); 
+nand n4(d[3],a,b,ne); 
+ 
+endmodule
